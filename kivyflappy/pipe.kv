@@ -1,0 +1,28 @@
+<Pipe>:
+    bottom_body_pos: self.pos[1]
+    bottom_cap_pos: self.pipe_center - self.Gap_size/2 - self.cap_size
+    top_cap_pos: self.pipe_center + self.Gap_size/2.0
+    top_body_pos:  self.pipe_center + self.Gap_size/2.0 + self.cap_size
+    canvas.before:
+        Rectangle:
+            #bottom pipe body
+            size: 48, self.bottom_cap_pos-self.bottom_body_pos
+            pos: self.pos[0] + (64-48)/2.0, self.bottom_body_pos
+            texture: self.pipe_body_texture
+            tex_coords: self.lower_pipe_texcord
+        Rectangle:
+        #bottom cap
+            size: 64, self.cap_size
+            pos: self.pos[0], self.bottom_cap_pos
+            source: 'pipe_cap.png'
+
+        Rectangle:
+            #top pip cape
+            size: 64, self.cap_size
+            pos: self.pos[0], self.top_cap_pos
+            source: 'pipe_cap.png'
+        Rectangle:
+            size: 48, self.top-self.top_body_pos
+            pos: self.pos[0] + (64-48)/2.0, self.top_body_pos
+            texture: self.pipe_body_texture
+            tex_coords: self.top_pipe_texcord
